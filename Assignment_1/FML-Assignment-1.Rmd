@@ -1,0 +1,152 @@
+---
+title: "FML Assignment-1"
+output: html_document
+date: "2024-02-04"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Source of my Dataset: https://www.kaggle.com/datasets/geoffnel/
+Job Postings Dataset
+
+Converting the data into R
+
+```{r}
+library(readxl)
+```
+
+```{r}
+Electric_Vehicle_Population_Data <- read.csv("C:/Users/kavip/OneDrive/Documents/Fundamentals of machine learning/Assignment -1/Electric_Vehicle_Population_Data.csv")
+```
+
+```{r}
+View(Electric_Vehicle_Population_Data)
+```
+
+#Providing the discriptive statistics for the database
+
+```{r}
+summary(Electric_Vehicle_Population_Data)
+```
+
+#Providing the Qualitative Variables 
+```{r}
+summary(Electric_Vehicle_Population_Data$VIN..1.10.)
+```
+
+```{r}
+summary(Electric_Vehicle_Population_Data$County)
+```
+
+```{r}
+summary(Electric_Vehicle_Population_Data$City)
+```
+
+```{r}
+summary(Electric_Vehicle_Population_Data$State)
+```
+
+```{r}
+summary(Electric_Vehicle_Population_Data$Make)
+```
+
+```{r}
+summary(Electric_Vehicle_Population_Data$Model)
+```
+
+```{r}
+summary(Electric_Vehicle_Population_Data$Electric.Vehicle.Type)
+```
+
+```{r}
+summary(Electric_Vehicle_Population_Data$Clean.Alternative.Fuel.Vehicle..CAFV..Eligibility)
+```
+
+```{r}
+summary(Electric_Vehicle_Population_Data$Vehicle.Location)
+```
+
+```{r}
+summary(Electric_Vehicle_Population_Data$Electric.Utility)
+```
+
+##Providing the Quantitative Variables
+```{r}
+summary(Electric_Vehicle_Population_Data$Postal.Code)
+```
+
+```{r}
+summary(Electric_Vehicle_Population_Data$Model.Year)
+```
+
+```{r}
+summary(Electric_Vehicle_Population_Data$Electric.Range)
+```
+
+```{r}
+summary(Electric_Vehicle_Population_Data$Base.MSRP)
+```
+
+```{r}
+summary(Electric_Vehicle_Population_Data$Legislative.District)
+```
+
+```{r}
+summary(Electric_Vehicle_Population_Data$DOL.Vehicle.ID)
+```
+
+```{r}
+summary(Electric_Vehicle_Population_Data$X2020.Census.Tract)
+```
+
+#Transforming one Qualitative Variable into Quantitative Variable that is Electric utility
+```{r}
+print(Electric_Vehicle_Population_Data$Electric.Utility)
+```
+
+#Log transformation
+
+```{r}
+Electric_Vehicle_Population_Data$Electric.Utility <-log(Electric_Vehicle_Population_Data$Model.Year)
+```
+
+
+```{r}
+summary(Electric_Vehicle_Population_Data$Electric.Utility)
+```
+
+#New data after applying the log transformation
+```{r}
+print(Electric_Vehicle_Population_Data$Electric.Utility)
+```
+
+#Now using Histogram we are plotting one quantitative variable 
+
+```{r}
+hist(Electric_Vehicle_Population_Data$Electric.Range,
+main="Histogram of Range",
+xlab="Range",
+ylab="Brand",
+col="red",
+border="white")
+```
+
+#Scatterplot of Electric.Utility to the Model.Year
+```{r}
+plot(Electric_Vehicle_Population_Data$Electric.Utility, Electric_Vehicle_Population_Data$Model.Year,
+main="Scatterplot of Electric.Utility vs Model.Year",
+xlab="Electric.Utility",
+ylab="Model.Year",
+col="blue")
+```
+
+
+
+
+
+
+
+
+
